@@ -21,7 +21,7 @@ public class CombinationSumIV {
 			for(int i = start; i < nums.length && target >= nums[i]; i++ ){
 				List<Integer> temp = new ArrayList<>();
 				temp.add(i);
-				dfs(nums, target - nums[i], i, temp, result);
+				dfs(nums, target - nums[i], start, temp, result);
 				temp.remove(temp.size() - 1);
 			}
 		}
