@@ -9,25 +9,25 @@ public class CompareVersionNumbers {
 		String[] charVer1 = version1.split("\\.");
 		String[] charVer2 = version2.split("\\.");
 		
-		int i = 0, j = 0;
-		while(i < charVer1.length && j < charVer2.length){
-			if(Integer.valueOf(charVer1[i]) > Integer.valueOf(charVer2[j])){
-				return 1;
-			}else if(Integer.valueOf(charVer1[i]) < Integer.valueOf(charVer2[j])){
-				return -1;
-			}else{
-				i++;
-				j++;
+		int i = 0;
+		while(i < charVer1.length || i < charVer2.length){
+			int v1 = 0, v2 = 0;
+			if(i < charVer1.length){
+				v1 = Integer.valueOf(charVer1[i]);
 			}
+			if(i < charVer2.length){
+				v2 = Integer.valueOf(charVer2[i]);
+			}
+			if(v1 < v2){
+				return -1;
+			}
+			if(v1 > v2){
+				return 1;
+			}
+			i++;
+			
 		}
 		
-		if(charVer1.length == charVer2.length){
-			return 0;
-		}else if(i < charVer1.length){
-			return 1;
-		}else{
-			return -1; 
-		}
-		
+		return 0;
 	}
 }

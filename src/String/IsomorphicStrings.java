@@ -20,8 +20,7 @@ public class IsomorphicStrings {
 				return false;
 			}
 		}
-		
-		
+				
 		return true;
 	}
 }

@@ -33,6 +33,5 @@ public class BullsAndCows {
 		
 		String res = "";
 		return res + bulls + "A" + (cows - bulls) + "B";
-		
 	}
 }
