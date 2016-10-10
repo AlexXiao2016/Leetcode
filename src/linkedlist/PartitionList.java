@@ -5,8 +5,8 @@ public class PartitionList {
         ListNode preHeadLess = new ListNode(0);
         ListNode preHeadNoLess = new ListNode(0);
         
-        preHeadLess = head;
-        preHeadNoLess = head;
+        preHeadLess.next = head;
+        preHeadNoLess.next = head;
         
         ListNode tempHead1 = preHeadLess;
         ListNode tempHead2 = preHeadNoLess;
