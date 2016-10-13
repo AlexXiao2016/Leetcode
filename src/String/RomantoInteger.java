@@ -13,13 +13,13 @@ public class RomantoInteger {
 				sum += 5;
 				break;
 			case 'X':
-				sum += 10 * (sum > 50 ? -1 : 1);
+				sum += 10 * (sum >= 50 ? -1 : 1);
 				break;
 			case 'L':
 				sum += 50;
 				break;
 			case 'C':
-				sum += 100 * (sum > 500 ? -1 : 1);
+				sum += 100 * (sum >= 500 ? -1 : 1);
 				break;
 			case 'D':
 				sum += 500;
