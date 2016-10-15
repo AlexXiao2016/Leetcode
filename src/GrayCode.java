@@ -20,6 +20,6 @@ public class GrayCode {
 	
 	public static void main(String args[]){
 		GrayCode gc = new GrayCode();
-		System.out.println(gc.grayCode(3));
+		System.out.println(gc.grayCode(10));
 	}
 }

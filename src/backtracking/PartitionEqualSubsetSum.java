@@ -1,4 +1,4 @@
-package linkedlist;
+package backtracking;
 
 public class PartitionEqualSubsetSum {
 	
