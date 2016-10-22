@@ -1,4 +1,4 @@
-package Tree;
+package tree;
 
 public class ConvertSortedListtoBinarySearchTree {
 	public static TreeNode sortedListToBST(ListNode head){

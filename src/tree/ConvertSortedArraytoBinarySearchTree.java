@@ -1,4 +1,4 @@
-package Tree;
+package tree;
 
 public class ConvertSortedArraytoBinarySearchTree {
 	public TreeNode sortedArrayToBST(int[] nums) {

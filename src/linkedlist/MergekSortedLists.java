@@ -7,6 +7,7 @@ public class MergekSortedLists {
 		if(lists == null || lists.length == 0){
 			return null;
 		}
+		
 		PriorityQueue<ListNode> pq = new PriorityQueue<>((a, b) -> a.val - b.val);
 		
 		for(ListNode node : lists){
@@ -17,6 +18,7 @@ public class MergekSortedLists {
 		
 		ListNode fakeHead = new ListNode(0);
 		ListNode curr = fakeHead;
+		
 		while(!pq.isEmpty()){
 			ListNode temp = pq.poll();
 			curr.next = temp;

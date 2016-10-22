@@ -1,4 +1,4 @@
-package String;
+package string;
 
 public class LongestSubstringwithAtLeastKRepeatingCharacters {
 	public static int longestSubstring(String s, int k) {

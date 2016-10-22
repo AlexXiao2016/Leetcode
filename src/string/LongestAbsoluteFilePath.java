@@ -1,4 +1,4 @@
-package String;
+package string;
 
 public class LongestAbsoluteFilePath {
 	public static int lengthLongestPath(String input) {

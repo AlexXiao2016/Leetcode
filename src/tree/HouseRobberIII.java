@@ -1,4 +1,4 @@
-package Tree;
+package tree;
 
 public class HouseRobberIII {
 	public int rob(TreeNode root) {
