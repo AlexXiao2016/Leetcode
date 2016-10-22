@@ -1,4 +1,4 @@
-package Array;
+package array;
 
 public class ArithmeticSlices {
 	public int numberOfArithmeticSlices(int[] A) {

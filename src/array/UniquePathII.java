@@ -1,4 +1,4 @@
-package Array;
+package array;
 
 public class UniquePathII {
 	public static int uniquePathsWithObstacles(int[][] obstacleGrid) {
