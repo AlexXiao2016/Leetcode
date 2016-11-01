@@ -15,7 +15,7 @@ public class SpiralMatrix {
 		int colStart = 0;
 		int colEnd = matrix[0].length - 1;
 		
-		while(rowStart < rowEnd && colStart < colEnd){
+		while(rowStart <= rowEnd && colStart <= colEnd){
 			for(int i = colStart; i <= colStart; i++){
 				result.add(matrix[rowStart][i]);
 			}
@@ -26,14 +26,14 @@ public class SpiralMatrix {
 			}
 			colEnd--;
 			
-			if(rowStart < rowEnd){
+			if(rowStart <= rowEnd){
 				for(int j = colEnd; j >= colStart; j--){
 					result.add(matrix[rowEnd][j]);
 				}
 			}
 			rowEnd--;
 			
-			if(colStart < colEnd){
+			if(colStart <= colEnd){
 				for(int i = rowEnd; i >= rowStart; i--){
 					result.add(matrix[i][colStart]);
 				}
