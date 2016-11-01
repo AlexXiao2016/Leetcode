@@ -24,11 +24,11 @@ public class DecodeWays {
             }
         }
         
-        return dp[n];
+        return dp[n]; 
         
     }
 	
 	public static void main(String args[]){
-		System.out.println(numDecodings("123"));
+		System.out.println(numDecodings("12"));
 	}
 }

@@ -14,4 +14,8 @@ public class PerfectSquares {
 		
 		return dp[n];
 	}
+	
+	public static void main(String args[]){
+		System.out.println(numSquares(10));
+	}
 }
