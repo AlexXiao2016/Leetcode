@@ -28,6 +28,7 @@ public class ImplementStackusingQueues {
         	q2.add(q1.poll());
         }
         int res = q1.poll();
+        q2.add(res);
         while(!q2.isEmpty()){
         	q1.add(q2.poll());
         }
@@ -38,4 +39,5 @@ public class ImplementStackusingQueues {
     public boolean empty() {
         return q1.isEmpty();
     }
+    
 }
