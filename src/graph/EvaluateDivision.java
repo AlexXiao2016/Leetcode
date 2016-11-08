@@ -30,8 +30,8 @@ public class EvaluateDivision {
 		for(int i = 0; i < length; i++){
 			for(int j = 0; j < length; j++){
 				for(int k = 0; k < length; k++){
-					if(map[j][i] >= 0d && map[k][i] >= 0d){
-						map[j][k] = map[j][i] * map[k][i];
+					if(map[j][i] >= 0d && map[i][k] >= 0d){
+						map[j][k] = map[j][i] * map[i][k];
 					}
 				}
 			}
