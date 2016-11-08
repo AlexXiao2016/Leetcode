@@ -7,7 +7,7 @@ public class LongestRepeatingCharacterReplacement {
 		int start = 0;
 		for(int end = 0; end < s.length(); end++){
 			max = Math.max(max, ++count[s.charAt(end) - 'A']);
-			if(max + k <= start + end){
+			if(max + k <= end - start){
 				count[s.charAt(start++) - 'A']--;
 			}
 		}
@@ -15,8 +15,8 @@ public class LongestRepeatingCharacterReplacement {
 	}
 	
 	public static void main(String args[]){
-		String s = "ABAABCEDF";
-		System.out.println(characterReplacement(s, 10));
+		String s = "ABAA";
+		System.out.println(characterReplacement(s, 0));
 		
 	}
 }
