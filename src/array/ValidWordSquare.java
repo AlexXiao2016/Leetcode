@@ -14,8 +14,7 @@ public class ValidWordSquare {
                     return false;
                 }
             }
-        }
-        
+        }        
         return true;
     }
 }
