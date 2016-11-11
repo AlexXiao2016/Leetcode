@@ -21,7 +21,7 @@ public class FlipGameII {
 			if(s.startsWith("++", i)){
 				String tmp = s.substring(0, i) + "--" + s.substring(i + 2);
 				if(!canWin(tmp, map)){
-					map.put(tmp, true);
+					map.put(s, true);
 					return true;
 				}
 			}
@@ -31,7 +31,7 @@ public class FlipGameII {
 	}
 	
 	public static void main(String args[]){
-		String s = "++++";
+		String s = "+++++";
 		FlipGameII fg = new FlipGameII();
 		System.out.println(fg.canWin(s));
 	}
