@@ -70,6 +70,6 @@ public class Searcha2DMatrix {
 //		int[][] nums = {{1,  3,  5,  7},{10, 11, 16, 20},{23, 30, 34, 50}};
 		int[][] nums = {{1}, {3}};
 		Searcha2DMatrix s = new Searcha2DMatrix();
-		s.searchMatrix2(nums, 2);
+		s.searchMatrix(nums, 2);
 	}
 }
