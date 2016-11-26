@@ -36,4 +36,25 @@ public class KthLargestElementinanArray {
 
 		return pq.poll();
 	}
+	
+	
+	public int findKthLargest3(int[] nums, int k) {
+		PriorityQueue<Integer> queue = new PriorityQueue<>(k, (a, b) -> a - b);
+        
+        for(int i = 0; i < nums.length; i++){
+            if(queue.size() >= k){
+                if(nums[i] <= queue.peek()) continue;
+                queue.poll();
+            }
+            queue.offer(nums[i]);
+        }
+        
+        return queue.peek();
+    }
+	
+	public static void main(String args[]){
+		int[] nums = {1,2,2,4};
+		KthLargestElementinanArray obj = new KthLargestElementinanArray();
+		obj.findKthLargest3(nums, 1);
+	}
 }
