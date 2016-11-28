@@ -79,6 +79,5 @@ public class CourseScheduleII {
 		visited[v] = true;
 		stack.push(v);
 		return true;
-	}
-	
+	}	
 }
