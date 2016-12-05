@@ -36,6 +36,20 @@ public class VerifyPreorderSequenceinBST {
 		return true;
 	}
 	
+	public boolean verifyPostorderBST(int[] postorder){
+		int high = Integer.MAX_VALUE, i = postorder.length;
+		for(int j = postorder.length - 1; j >= 0; j--){
+			if(postorder[j] > high){
+				return false;
+			}
+			while(i <= postorder.length - 1 && postorder[j] > postorder[i]){
+				high = postorder[i++];
+			}
+			postorder[--i] = postorder[j];
+		}
+		return true;
+	}
+	
 	public static void main(String args[]){
 		int[] preorder = {10,5,3,7,20, 18, 11, 19};
 		VerifyPreorderSequenceinBST vbst = new VerifyPreorderSequenceinBST();
