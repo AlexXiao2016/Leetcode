@@ -51,6 +51,6 @@ public class WordLadder {
 		String wordList[] = {"hot","dot","dog","lot","log"};
 		Set<String> set = new HashSet<>(Arrays.asList(wordList));
 		WordLadder wl = new WordLadder();
-		System.out.println(wl.ladderLength2("hit", "cog", set));
+		System.out.println(wl.ladderLength("hit", "cog", set));
 	}
 }
