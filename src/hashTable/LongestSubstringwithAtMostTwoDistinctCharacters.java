@@ -1,4 +1,4 @@
-package string;
+package hashTable;
 import java.util.*;
 
 public class LongestSubstringwithAtMostTwoDistinctCharacters {
