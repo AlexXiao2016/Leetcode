@@ -20,9 +20,30 @@ public class LetterCombinationsofaPhoneNumber {
 			}			
 		}		
 		return result;
-	}	
+	}
+	
+	public static List<String> letterCombinationsDFS(String digits) {
+        List<String> res = new ArrayList<>();
+        if(digits == null || digits.length() == 0) return res;
+        String mapping[] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        dfs(digits, 0, new StringBuilder(), res, mapping);
+        return res;
+    }
+    
+    public static void dfs(String digits, int index, StringBuilder sb, List<String> res, String[] mapping){
+        if(index >= digits.length()){
+            res.add(sb.toString());
+            return;
+        }
+        
+        String num = mapping[digits.charAt(index) - '0'];
+        for(int i = 0; i < num.length(); i++){
+            dfs(digits, index + 1, sb.append(num.charAt(i)), res, mapping);
+            sb.deleteCharAt(sb.length() - 1);  //backtracking
+        }
+    }
 	
 	public static void main(String args[]){
-		letterCombinations("1023123");
+		letterCombinationsDFS("2");
 	}
 }	
