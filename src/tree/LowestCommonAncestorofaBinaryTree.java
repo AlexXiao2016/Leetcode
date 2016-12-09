@@ -34,4 +34,15 @@ public class LowestCommonAncestorofaBinaryTree {
 		}
 		return q;	
 	}
+	
+	
+	//Recurssive
+	public TreeNode lowestCommonAncestorRes(TreeNode root, TreeNode p, TreeNode q) {
+		if(root == null || root == p || root == q) return root;
+		
+		TreeNode left = lowestCommonAncestorRes(root.left, p, q);
+		TreeNode right = lowestCommonAncestorRes(root.right, p, q);
+		if(left != null && right != null) return root;
+		return left == null ? right : left;
+	}
 }
