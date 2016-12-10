@@ -48,9 +48,9 @@ public class WordLadder {
 	
 	
 	public static void main(String args[]){
-		String wordList[] = {"hot","dot","dog","lot","log"};
+		String wordList[] = {"hot","dog", "dot"};
 		Set<String> set = new HashSet<>(Arrays.asList(wordList));
 		WordLadder wl = new WordLadder();
-		System.out.println(wl.ladderLength("hit", "cog", set));
+		System.out.println(wl.ladderLength("hot", "dog", set));
 	}
 }
