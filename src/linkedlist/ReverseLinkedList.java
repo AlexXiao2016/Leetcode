@@ -15,6 +15,17 @@ public class ReverseLinkedList {
 		return newHead;
 	}
 	
+	public ListNode reverseListRec(ListNode head){
+		return reverseListRec(head, null);
+	}
+	
+	public ListNode reverseListRec(ListNode head, ListNode newHead){
+		if(head == null) return newHead;
+		ListNode next = head.next;
+		head.next = newHead;
+		return reverseListRec(next, head);
+	}
+	
 	
 	public static ListNode reverseListFromMid(ListNode head){
 		
