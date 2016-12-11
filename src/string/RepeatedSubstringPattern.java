@@ -26,4 +26,29 @@ public class RepeatedSubstringPattern {
                       
         return false;
     }
+	
+	public static boolean repeatedSubstringPattern2(String str) {
+        if(str == null || str.length() == 0) return true;
+        
+        int n = str.length();
+        for(int len = n / 2; len >= 1; len--){
+            if(n % len != 0) continue;
+            String base = str.substring(0, len);
+            int start = len;
+            while(start + len <= n ){
+                if(!str.substring(start, start + len).equals(base)) break;
+                start += len;
+            }
+            if(start == n){
+            	return true;
+            }
+        }
+        
+        return true;
+    }
+	
+	public static void main(String args[]){
+		String s= "abab";
+		repeatedSubstringPattern2(s);
+	}
 }
