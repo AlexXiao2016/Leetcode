@@ -20,4 +20,29 @@ public class LongestSubstringWithoutRepeatingCharacters {
         
         return max;
 	}
+	
+	public static int getLengthSlidingWindow(String s){
+		int hash[] = new int[26];
+        int begin = 0, end = 0;
+        int max = 0;
+        while(end < s.length()){
+            if(hash[s.charAt(end) - 'a'] == 0){
+                hash[s.charAt(end) - 'a']++;
+                end++;
+            }else{
+                if(hash[s.charAt(begin) - 'a'] != 0){
+                    hash[s.charAt(begin) - 'a']--;
+                    begin++;
+                }
+            }
+            
+            max = Math.max(max, end - begin);
+        }
+        
+        return max;
+	}
+	
+	public static void main(String args[]){
+		getLengthSlidingWindow("abcabcbb");
+	}
 }
