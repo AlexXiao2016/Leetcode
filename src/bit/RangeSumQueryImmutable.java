@@ -1,4 +1,4 @@
-package array;
+package bit;
 
 public class RangeSumQueryImmutable {
 	int sum[];
