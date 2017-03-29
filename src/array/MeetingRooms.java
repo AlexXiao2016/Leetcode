@@ -1,31 +1,32 @@
 package array;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class MeetingRooms {
 	public boolean canAttendMeetings(Interval[] intervals) {
-		if(intervals == null || intervals.length == 0){
+		if (intervals == null || intervals.length == 0) {
 			return true;
 		}
 
-		Arrays.sort(intervals, new Comparator<Interval>(){
+		Arrays.sort(intervals, new Comparator<Interval>() {
 			@Override
-			public int compare(Interval a, Interval b){
+			public int compare(Interval a, Interval b) {
 				return a.start != b.start ? a.end - b.end : a.start - b.start;
 			}
 		});
-		
+
 		Interval start = intervals[0];
 		int i = 1;
-		while(i < intervals.length){
-			if(start.end > intervals[i].start){
+		while (i < intervals.length) {
+			if (start.end > intervals[i].start) {
 				return false;
-			}else{
+			} else {
 				start = intervals[i];
 			}
 			i++;
 		}
-		
+
 		return true;
 
 	}
@@ -33,7 +34,17 @@ public class MeetingRooms {
 	private class Interval {
 		int start;
 		int end;
-		Interval() { start = 0; end = 0; }
-		Interval(int s, int e) { start = s; end = e; }
+
+		@SuppressWarnings("unused")
+		Interval() {
+			start = 0;
+			end = 0;
+		}
+
+		@SuppressWarnings("unused")
+		Interval(int s, int e) {
+			start = s;
+			end = e;
+		}
 	}
 }
