@@ -3,32 +3,25 @@ package tree;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class PopulatingNextRightPointersinEachNode {
+public class PopulatingNextRightPointersinEachNodeII {
 	public static void connect(TreeLinkNode root) {
-		if (root == null) {
-			return;
-		}
-
 		Queue<TreeLinkNode> queue = new LinkedList<>();
-		TreeLinkNode pre = null;
-		queue.add(root);
+
+		queue.offer(root);
+
 		while (!queue.isEmpty()) {
 			int size = queue.size();
 			for (int i = 0; i < size; i++) {
-				TreeLinkNode curr = queue.poll();
+				TreeLinkNode temp = queue.poll();
 				if (i == size - 1) {
-					curr.next = null;
+					temp.next = null;
+				} else {
+					temp.next = queue.peek();
 				}
-				if (i != 0) {
-					pre.next = curr;
-				}
-				if (curr.left != null) {
-					queue.offer(curr.left);
-				}
-				if (curr.right != null) {
-					queue.offer(curr.right);
-				}
-				pre = curr;
+				if (temp.left != null)
+					queue.offer(temp.left);
+				if (temp.right != null)
+					queue.offer(temp.right);
 			}
 		}
 	}
@@ -50,15 +43,5 @@ public class PopulatingNextRightPointersinEachNode {
 		n3.right = n7;
 
 		connect(n1);
-	}
-
-}
-
-class TreeLinkNode {
-	int val;
-	TreeLinkNode left, right, next;
-
-	TreeLinkNode(int x) {
-		val = x;
 	}
 }
