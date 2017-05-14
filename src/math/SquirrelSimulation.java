@@ -8,6 +8,8 @@ public class SquirrelSimulation {
             sum += 2 * dist;
             maxDiff = Math.max(maxDiff, dist - Math.abs(squirrel[0] - nut[0]) - Math.abs(squirrel[1] - nut[1]));
         }
+        
         return sum - maxDiff;
+        
 	}
 }
