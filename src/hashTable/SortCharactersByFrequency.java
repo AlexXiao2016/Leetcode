@@ -44,33 +44,43 @@ public class SortCharactersByFrequency {
 		}
 	}
 
-	public String frequencySort2(String s) {
-		if (s.length() < 3)
+	private String frequencySort2(String s) {
+		if (s == null || s.length() < 3)
 			return s;
+
+		int map[] = new int[256];
 		int max = 0;
-		int[] map = new int[256];
-		for (char ch : s.toCharArray()) {
-			map[ch]++;
-			max = Math.max(max, map[ch]);
+		for (int i = 0; i < s.length(); i++) {
+			map[s.charAt(i)]++;
+			max = Math.max(map[s.charAt(i)], max);
 		}
-		String[] buckets = new String[max + 1]; // create max buckets
-		for (int i = 0; i < 256; i++) { // join chars in the same bucket
-			String str = buckets[map[i]];
-			if (map[i] > 0)
-				buckets[map[i]] = (str == null) ? "" + (char) i : (str + (char) i);
+
+		String bucket[] = new String[max + 1];
+		for (int i = 0; i < 256; i++) {
+			String str = bucket[map[i]];
+			if (map[i] > 0) {
+				bucket[map[i]] = (str == null ? "" + (char) i : (str + (char) i));
+			}
 		}
-		StringBuilder strb = new StringBuilder();
-		for (int i = max; i >= 0; i--) { // create string for each bucket.
-			if (buckets[i] != null)
-				for (char ch : buckets[i].toCharArray())
-					for (int j = 0; j < i; j++)
-						strb.append(ch);
+
+		StringBuilder sb = new StringBuilder();
+		for (int i = max; i >= 0; i--) {
+			String str = bucket[i];
+			if (str != null) {
+				for (char c : str.toCharArray()) {
+					for (int j = 0; j < i; j++) {
+						sb.append(c);
+					}
+				}
+			}
 		}
-		return strb.toString();
+
+		return sb.toString();
 	}
-	
-	public static void main(String args[]){
+
+	public static void main(String args[]) {
 		SortCharactersByFrequency scbf = new SortCharactersByFrequency();
 		scbf.frequencySort2("tree");
+		
 	}
 }

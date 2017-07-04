@@ -38,8 +38,21 @@ public class TernaryExpressionParser {
         return expression;
     }
 	
-	public static void main(String args[]){
-		System.out.println(parseTernary2("F?T:F?T?1:2:F?3:4"));
+	
+	public static void test(int n){
+		int start = 1;
+		for(int i = 1; i <= n; i++){
+			int j = 0;
+			while(j < i){
+				System.out.print(start++ + " ");
+				j++;
+			}
+			System.out.println();
+		}
+	}
+	
+	public static void main(String args[]){		
+		test(3);
 	}
 	
 	

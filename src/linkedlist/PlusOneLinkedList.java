@@ -37,35 +37,33 @@ public class PlusOneLinkedList {
     }
     
     
-    public ListNode plusOne1(ListNode head){
+    public static ListNode plusOne1(ListNode head){
     	ListNode newHead = new ListNode(0);
-    	newHead.next = head;
-    	ListNode i = newHead;
-    	ListNode j = newHead;
-    	
-    	while(j.next != null){
-    		j = j.next;
-    		if(j.val != 9){
-    			i = j;
-    		}
-    	}
-    	
-    	i.val++;
-    	i = i.next;
-    	while(i != null){
-    		i.val = 0;
-    		i = i.next;    		
-    	}
-    	
-    	if(newHead.val == 0){
-    		return newHead.next;    	
-    	}
-    	return newHead;
+        newHead.next = head;
+        ListNode nonNine = newHead;
+        ListNode cur = newHead;
+        
+        while(cur.next != null){
+            cur = cur.next;
+            if(cur.val != 9){
+                nonNine = cur;
+            }
+        }
+        
+        nonNine.val++;
+        cur = nonNine.next;
+        while(cur != null){
+            cur.val = 0;
+            cur = cur.next;
+        }
+        
+        if(newHead.val == 0) return newHead.next;
+        return newHead;
     }
     
     public static void main(String args[]){
     	ListNode head = new ListNode(9);
-    	plusOne(head);
+    	plusOne1(head);
     }
     
 }
