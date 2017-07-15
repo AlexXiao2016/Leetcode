@@ -28,7 +28,7 @@ public class MaximumProductofWordLengths {
 	}
 	
 	public static void main(String args[]){
-		String words[] = {"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
+		String words[] = {"abcw", "wxyz", "xtfn"};
 		System.out.println(maxProduct(words));		
 	}
 }

@@ -1,4 +1,5 @@
 package tree;
+import java.util.*;
 
 public class CountUnivalueSubtrees {
 	public int countUnivalSubtrees(TreeNode root) {
@@ -21,5 +22,51 @@ public class CountUnivalueSubtrees {
 			return true;
 		}
 		return false;
+	}
+
+	public int countUnivalSubtrees2(TreeNode root) {
+		HashMap<Integer, Integer> map = new HashMap<>();
+		getValue(root, map);
+
+		System.out.println(map.size());
+		int res = 0;
+		for(int key : map.keySet()){
+			if(map.get(key) == 1){
+				res++;
+			}
+		}
+
+		return res;
+	}
+
+	private int getValue(TreeNode root, HashMap<Integer, Integer> map){
+		if(root == null)    return 0;
+
+
+		int left = getValue(root.left, map);
+		map.put(left, map.getOrDefault(left, 0) + 1);
+		int right = getValue(root.right, map);
+		map.put(right, map.getOrDefault(right, 0) + 1);
+		int sum = left + root.val + right;
+		map.put(sum, map.getOrDefault(sum, 0) + 1);
+		return sum;
+	}
+
+	public static void main(String[] args){
+		TreeNode root = new TreeNode(5);
+		TreeNode left = new TreeNode(1);
+		TreeNode right = new TreeNode(5);
+		TreeNode left_l = new TreeNode(5);
+		TreeNode left_r = new TreeNode(5);
+		TreeNode right_r = new TreeNode(5);
+
+		root.left = left;
+		root.right = right;
+		left.left = left_l;
+		left.right = left_r;
+		right.right = right_r;
+
+		CountUnivalueSubtrees cs = new CountUnivalueSubtrees();
+		cs.countUnivalSubtrees2(root);
 	}
 }

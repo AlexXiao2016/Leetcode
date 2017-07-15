@@ -40,4 +40,44 @@ public class DecodeString {
 
 		return sb.toString();
 	}
+
+
+	public String decodeString2(String s) {
+		Stack<Integer> countStack = new Stack<>();
+		Stack<String> resStack = new Stack<>();
+		StringBuilder res = new StringBuilder();
+		int i = 0;
+
+		while(i < s.length()){
+			if(Character.isDigit(s.charAt(i))) {
+				int count = 0;
+				while (s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+					count = count * 10 + s.charAt(i) - '0';
+					i++;
+				}
+				countStack.push(count);
+			}else if(s.charAt(i) == '['){
+				resStack.push(res.toString());
+				res = new StringBuilder();
+			}else if(s.charAt(i) == ']'){
+				int counter = countStack.pop();
+				StringBuilder temp = new StringBuilder(resStack.pop());
+				for(int j = 0; j < counter; j++){
+					temp.append(res);
+				}
+				res = temp;
+				// res = new StringBuilder();
+			}else{
+				res.append(s.charAt(i));
+			}
+			i++;
+		}
+
+		return res.toString();
+	}
+
+	public static void main(String args[]){
+		DecodeString ds = new DecodeString();
+		ds.decodeString2("3[a2[c]]");
+	}
 }

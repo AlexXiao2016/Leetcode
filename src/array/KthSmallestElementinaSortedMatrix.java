@@ -28,6 +28,36 @@ public class KthSmallestElementinaSortedMatrix {
 		return pq.poll();
 	}
 
+	public static int kthSmallest2(int[][] matrix, int k){
+	    int n = matrix.length;
+
+	    PriorityQueue<Tuple> pq = new PriorityQueue<>();
+	    for(int j = 0; j < n; j++){
+	        pq.offer(new Tuple(0, j, matrix[0][j]));
+        }
+        for(int i = 0; i < k - 1; i++){
+	        Tuple temp = pq.poll();
+	        if(temp.x == n - 1) continue;
+	        pq.offer(new Tuple(temp.x + 1, temp.y, matrix[temp.x + 1][temp.y]));
+        }
+
+        return pq.poll().val;
+    }
+
+    static class Tuple implements Comparable<Tuple>{
+	    int x, y, val;
+	    public Tuple(int x, int y, int val){
+	        this.x = x;
+	        this.y = y;
+	        this.val = val;
+        }
+
+        @Override
+        public int compareTo(Tuple o) {
+            return this.val - o.val;
+        }
+    }
+
 	public KthSmallestElementinaSortedMatrix(int id, float rating) {
 		this.id = id;
 		this.rating = rating;
@@ -67,38 +97,11 @@ public class KthSmallestElementinaSortedMatrix {
 		/*
 		 * Enter your code here. Read input from STDIN. Print output to STDOUT
 		 */
+        int[][] matrix = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};
 
-		Scanner in = new Scanner(System.in);
+        System.out.println(kthSmallest2(matrix, 8));
 
-		int n = 0;
-		int m = 0;
-		n = in.nextInt();
-		m = in.nextInt();
-
-		int matrix[][] = new int[m][3];
-		for (int j = 0; j < m; j++) {
-			matrix[j][0] = in.nextInt();
-			matrix[j][1] = in.nextInt();
-			matrix[j][2] = in.nextInt();
-		}
-
-		int max = 0;
-		int list[] = new int[n];
-		for (int i = 0; i < m; i++) {
-			for (int j = matrix[i][0] - 1; j <= matrix[i][1] - 1; j++) {
-				list[j] += matrix[i][2];
-			}
-		}
-
-		for (int i = 0; i < n; i++) {
-			if (max > list[i]) {
-				max = list[i];
-			}
-		}
-
-		System.out.println(max);
-		in.close();
-	}
+    }
 }
 
 class Movie {
